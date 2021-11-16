@@ -58,7 +58,7 @@ $(".btn").click(function() {
 // });
 
 // for mobile
-$("h1").on ("click" "tap")(function() {
+$(document).on('keydown touchstart', function () {
   if(!started) {
       $("#level-title").text("Level " + level);
     nextSequence();
