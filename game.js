@@ -49,7 +49,7 @@ $(".btn").click(function() {
   checkAnswer(userClickedPattern.length-1);
 });
 
-$(document).keydown(function() {
+$("h1").click(function() {
   if(!started) {
       $("#level-title").text("Level " + level);
     nextSequence();
@@ -58,7 +58,7 @@ $(document).keydown(function() {
 });
 
 // for mobile
-$(document).doubletap(function() {
+$("h1").doubletap(function() {
   if(!started) {
       $("#level-title").text("Level " + level);
     nextSequence();
