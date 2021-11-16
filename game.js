@@ -15,7 +15,7 @@ function checkAnswer(currentLevel) {
     if (userClickedPattern.length === gamePattern.length) {
       setTimeout(function() {
         nextSequence();
-      }), 2000;
+      }), 1000;
     }
   } else {
     console.log("wrong");
@@ -75,7 +75,7 @@ function nextSequence() {
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColor = buttonColors[randomNumber];
   gamePattern.push(randomChosenColor);
-  $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
+  $("#" + randomChosenColor).fadeIn(500).fadeOut(500).fadeIn(500);
   playSound(randomChosenColor);
 };
 
@@ -91,7 +91,7 @@ function animatePress(currentColor) {
 
   setTimeout(function () {
     $("#" + currentColor).removeClass("pressed");
-  }, 100);
+  }, 500);
 };
 
 // 1. create new function named start Over
