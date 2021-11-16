@@ -1,13 +1,3 @@
-// $("h1").on({
-//   mouseover: function() {
-//     $("h1").text("Hi Cameron. Press A Key to Start")
-//   },
-//   mouseleave: function() {
-//     $("h1").text("Hi Cameron. Press A Key to Start")
-//   }
-// });
-
-
 
 var buttonColors = ["red", "blue", "green", "yellow"];
 
@@ -34,13 +24,13 @@ function checkAnswer(currentLevel) {
     setTimeout(function () {
       $("body").removeClass("game-over");
     }, 200);
-    $("#level-title").text("Game Over, Press a Key or Tap Here to Restart ");
+    $("#level-title").text("Game Over, Press a Key (or Tap Here) to Restart ");
     startOver();
 
     }
 };
 
-$(".btn").on('keydown touchstart', function() {
+$(".btn").on('click touchstart', function() {
 
   var userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
