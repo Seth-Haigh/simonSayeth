@@ -15,7 +15,7 @@ function checkAnswer(currentLevel) {
     if (userClickedPattern.length === gamePattern.length) {
       setTimeout(function() {
         nextSequence();
-      }), 1000;
+      }), 2000;
     }
   } else {
     console.log("wrong");
@@ -24,7 +24,7 @@ function checkAnswer(currentLevel) {
     setTimeout(function () {
       $("body").removeClass("game-over");
     }, 200);
-    $("#level-title").text("Game Over, Press a Key (or Tap Here) to Restart ");
+    $("#level-title").text("Game Over - Press Key/Tap to Restart ");
     startOver();
 
     }
