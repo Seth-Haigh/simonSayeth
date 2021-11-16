@@ -34,13 +34,13 @@ function checkAnswer(currentLevel) {
     setTimeout(function () {
       $("body").removeClass("game-over");
     }, 200);
-    $("#level-title").text("Game Over, Press Any Key to Restart ");
-    startOver(); // call start over
+    $("#level-title").text("Game Over, Press a Key or Tap Here to Restart ");
+    startOver();
 
     }
 };
 
-$(".btn").click(function() {
+$(".btn").on('keydown touchstart', function() {
 
   var userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
@@ -56,6 +56,16 @@ $(".btn").click(function() {
 //     started = true;
 //   }
 // });
+
+// // for mobile
+// $(document).on('keydown touchstart', function () {
+//   if(!started) {
+//       $("#level-title").text("Level " + level);
+//     nextSequence();
+//     started = true;
+//   }
+// });
+// // -----------
 
 // for mobile
 $(document).on('keydown touchstart', function () {
