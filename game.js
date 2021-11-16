@@ -71,27 +71,23 @@ function nextSequence() {
   userClickedPattern = [];
   level++;
   $("#level-title").text("Level " + level);
-
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColor = buttonColors[randomNumber];
   gamePattern.push(randomChosenColor);
-  $("#" + randomChosenColor).fadeOut(700).fadeIn(50).fadeOut(50).fadeIn(50);
   playSound(randomChosenColor);
+  $("#" + randomChosenColor).fadeOut(500).fadeIn(50).fadeOut(50).fadeIn(50);
 };
 
 function playSound(name) {
-
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
-
 };
 
 function animatePress(currentColor) {
   $("#" + currentColor).addClass("pressed");
-
   setTimeout(function () {
     $("#" + currentColor).removeClass("pressed");
-  }, 500);
+  }, 100);
 };
 
 // 1. create new function named start Over
