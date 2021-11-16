@@ -58,7 +58,7 @@ $(".btn").click(function() {
 // });
 
 // for mobile
-$("h1").doubletap(function() {
+$("h1").on ("click" "tap")(function() {
   if(!started) {
       $("#level-title").text("Level " + level);
     nextSequence();
