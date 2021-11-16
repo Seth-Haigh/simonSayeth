@@ -49,13 +49,13 @@ $(".btn").click(function() {
   checkAnswer(userClickedPattern.length-1);
 });
 
-$("h1").click(function() {
-  if(!started) {
-      $("#level-title").text("Level " + level);
-    nextSequence();
-    started = true;
-  }
-});
+// $("h1").click(function() {
+//   if(!started) {
+//       $("#level-title").text("Level " + level);
+//     nextSequence();
+//     started = true;
+//   }
+// });
 
 // for mobile
 $("h1").doubletap(function() {
