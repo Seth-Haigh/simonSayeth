@@ -57,6 +57,16 @@ $(document).keydown(function() {
   }
 });
 
+// for mobile
+$(document).doubletap(function() {
+  if(!started) {
+      $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+// -----------
+
 function nextSequence() {
   userClickedPattern = [];
   level++;
