@@ -30,7 +30,7 @@ function checkAnswer(currentLevel) {
     }
 };
 
-$(".btn").on('click touchstart', function() {
+$(".btn").click(function() {
 
   var userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
@@ -75,7 +75,7 @@ function nextSequence() {
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColor = buttonColors[randomNumber];
   gamePattern.push(randomChosenColor);
-  $("#" + randomChosenColor).fadeIn(500).fadeOut(500).fadeIn(500);
+  $("#" + randomChosenColor).fadeOut(700).fadeIn(500).fadeOut(100).fadeIn(500);
   playSound(randomChosenColor);
 };
 
