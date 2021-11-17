@@ -1,13 +1,14 @@
 
-var buttonColors = ["red", "blue", "green", "yellow"];
 
+var player = prompt("What is your name? ");
+$("h2").append(player);
+var buttonColors = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
 var currentLevel = [];
-
 var started = false;
-
 var level = 0;
+var highestLevel = 0;
 
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
@@ -26,19 +27,26 @@ function checkAnswer(currentLevel) {
     }, 200);
     $("#level-title").text("Game Over - Press Key/Tap to Restart ");
     startOver();
-
     }
 };
 
-$(".btn").click(function() {
+function levelUp() {
+  if (highestLevel < level) {
+    highestLevel++;  
+  }
 
+    $("h2").text(player + ", your highest level completed is: " + highestLevel);
+};
+
+$(".btn").click(function() {
   var userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
   playSound(userChosenColor);
   animatePress(userChosenColor);
   checkAnswer(userClickedPattern.length-1);
-});
+  });
 
+//desktop only code
 // $("h1").click(function() {
 //   if(!started) {
 //       $("#level-title").text("Level " + level);
@@ -47,15 +55,6 @@ $(".btn").click(function() {
 //   }
 // });
 
-// // for mobile
-// $(document).on('keydown touchstart', function () {
-//   if(!started) {
-//       $("#level-title").text("Level " + level);
-//     nextSequence();
-//     started = true;
-//   }
-// });
-// // -----------
 
 // for mobile
 $(document).on('keydown touchstart', function () {
@@ -65,7 +64,6 @@ $(document).on('keydown touchstart', function () {
     started = true;
   }
 });
-// -----------
 
 function nextSequence() {
   userClickedPattern = [];
@@ -76,6 +74,7 @@ function nextSequence() {
   gamePattern.push(randomChosenColor);
   playSound(randomChosenColor);
   $("#" + randomChosenColor).fadeOut(500).fadeIn(50).fadeOut(50).fadeIn(50);
+  levelUp();
 };
 
 function playSound(name) {
@@ -90,9 +89,8 @@ function animatePress(currentColor) {
   }, 50);
 };
 
-// 1. create new function named start Over
 function startOver() {
-  level = 0; // 3.  reset values
-  gamePattern = []; // 3.  reset values
-  started = false; // 3.  reset values
+  level = 0;
+  gamePattern = [];
+  started = false;
 };
